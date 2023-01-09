@@ -1,29 +1,24 @@
 package id.ac.undiksha.siak.entities;
 
+import id.ac.undiksha.organization.StudyProgram;
+
 public class Student extends Person{
 	
 	public Student(String name, String address, boolean gender, String nim, 
-			String faculty, String departement, String studyProgram) {
+			String studyProgramCode, String studyProgramName) {
 		super(name, address, gender);
 		this.nim = nim;
-		this.studyProgram = studyProgram;
-		this.departement = departement;
-		this.faculty = faculty;
+		studyProgram = new StudyProgram(studyProgramCode, studyProgramName);
 	}
 
 	private String nim;
-	private String studyProgram;
-	private String departement;
-	private String faculty;
+	private StudyProgram studyProgram;// = new StudyProgram();
 	
-
 	
 	public Student() {
 		super();// untuk manggil contructor dari parent
 		this.nim 			= "<Invalid NIM>";
-		this.studyProgram	= "<Invalid Study Program>";
-		this.departement	= "<Invalid Departement>";
-		this.faculty 		= "<Invalid Faculty>";
+		
 		
 	}
 	public void printAllInfo() {
@@ -31,19 +26,13 @@ public class Student extends Person{
 		System.out.println("NIM \t\t: " + this.getNim());
 		System.out.println("Name \t\t: " + this.getName());
 		System.out.println("Address \t: " + this.getAddress());
-		System.out.println("Gender \t\t: " + this.getGender());
-		System.out.println("Study Program \t: " + this.getStudyProgram());
-		System.out.println("Departement \t: " + this.getDepartement());
-		System.out.println("Faculty \t: " + this.getFaculty() );
+		System.out.println("Gender \t\t: " + (getGender()? "Male" : "Female"));
+		System.out.println("Study Program Code \t: " + this.getStudyProgram().getStudyProgramCode());
+		System.out.println("Study Program Name \t: " + this.getStudyProgram().getStudyProgramName());
+//		System.out.println("Faculty \t: " + this.getFaculty() );
 		System.out.println("");	
 	}
 	
-	public String getFaculty() {
-		return faculty;
-	}
-	public void setFaculty(String faculty) {
-		this.faculty = faculty;
-	}
 	public String getNim() {
 		return nim;
 	}
@@ -51,20 +40,12 @@ public class Student extends Person{
 	public void setNim(String nim) {
 		this.nim = nim;
 	}
-
-	public String getDepartement() {
-		return departement;
-	}
-
-	public void setDepartement(String departement) {
-		this.departement = departement;
-	}
-
-	public String getStudyProgram() {
+	public StudyProgram getStudyProgram() {
 		return studyProgram;
 	}
-
-	public void setStudyProgram(String studyProgram) {
+	public void setStudyProgram(StudyProgram studyProgram) {
 		this.studyProgram = studyProgram;
 	}
+
+	
 }

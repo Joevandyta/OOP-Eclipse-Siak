@@ -5,6 +5,7 @@ import id.ac.undiksha.siak.entities.*;
 public class Main {
 
 	public static void main(String[] args) {
+		/*
 		Student std1 = new Student();
 		std1.setNim("2115101027");
 		std1.setName("Jopan");
@@ -63,8 +64,18 @@ public class Main {
 				"FE"
 			);
 		staff2.printAllInfo();
+		*/
 		
+		Student std2 = new Student(
+				"ji&",
+				"Singaraja",
+				true,
+				"123",
+				"ILKOM_21",
+				"ILKOM"
+			);
 		
+		std2.printAllInfo();
 	}
 	
 }
